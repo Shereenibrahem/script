@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import yaml
-import subprocess
 
 gitinstall = {'version': '3.6', 'services': {'gitlab': {'container_name': 'gitlab', 'image': 'gitlab/gitlab-ce:latest', 'restart': 'always', 'hostname': 'TestELB-559085542.us-east-1.elb.amazonaws.com', 'ports': ['80:80'], 'volumes': ['$GITLAB_HOME/config:/etc/gitlab', '$GITLAB_HOME/logs:/var/log/gitlab', '$GITLAB_HOME/data:/var/opt/gitlab']}}}
 
@@ -14,7 +13,3 @@ playbook =  [{'name': 'Install docker on EC2', 'hosts': 'localhost', 'roles': [{
 with open('playbook.yml', 'w') as f:
 
     data = yaml.dump(playbook, f)
-
-
-
-#subprocess.call('./checkimage.sh')
