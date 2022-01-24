@@ -9,7 +9,7 @@ with open('docker-compose.yml', 'w') as f:
 
     data = yaml.dump(gitinstall, f)
 
-playbook =  [{'name': 'Install docker on EC2', 'hosts': 'EC2', 'roles': [{'role': 'geerlingguy.docker', 'vars': {'docker_edition': 'ce', 'docker_package_state': 'present', 'docker_service_state': 'started', 'docker_service_enabled': True, 'docker_restart_handler_state': 'restarted', 'docker_install_compose': True}}]}]
+playbook =  [{'name': 'Install docker on EC2', 'hosts': 'localhost', 'roles': [{'role': 'geerlingguy.docker', 'vars': {'docker_edition': 'ce', 'docker_package_state': 'present', 'docker_service_state': 'started', 'docker_service_enabled': True, 'docker_restart_handler_state': 'restarted', 'docker_install_compose': True}}]}]
 
 with open('playbook.yml', 'w') as f:
 
